@@ -1,14 +1,12 @@
 package http
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"net/http"
 )
 
 func StartServer() {
-	fmt.Println("Server Started")
 
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "Hello, world!\n")
