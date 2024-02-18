@@ -10,13 +10,13 @@ import (
 	"github.com/theplant/luhn"
 )
 
-type creditCardDetails struct {
+type CreditCardDetails struct {
 	bankName   string
 	cardNumber string
 	expiry     string
 }
 
-func (c creditCardDetails) CheckCardLength() string {
+func (c CreditCardDetails) CheckCardLength() string {
 	cardNumber := c.cardNumber
 	if len(cardNumber) < 13 || len(cardNumber) > 19 {
 		fmt.Printf("Card number is invalid: %s\n", cardNumber)
@@ -26,7 +26,7 @@ func (c creditCardDetails) CheckCardLength() string {
 	return cardNumber
 }
 
-func (c creditCardDetails) LunhValidator() bool {
+func (c CreditCardDetails) LunhValidator() bool {
 	cardNumber, err := strconv.Atoi(c.cardNumber)
 	if err != nil {
 		fmt.Printf("Failed to convert the card number %s in integer ", c.cardNumber)
@@ -39,7 +39,7 @@ func (c creditCardDetails) LunhValidator() bool {
 }
 
 // func main() {
-// 	cardNumber := creditCardDetails{bankName: "HDFC", cardNumber: "6011111111111117", expiry: "12/30"}
+// 	cardNumber := CreditCardDetails{bankName: "HDFC", cardNumber: "6011111111111117", expiry: "12/30"}
 
 // 	cardLength, validCardNumber := cardNumber.checkCardLength(), cardNumber.lunhValidator()
 // 	fmt.Println(cardLength, validCardNumber)
