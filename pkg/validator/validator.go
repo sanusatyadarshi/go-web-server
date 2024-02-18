@@ -16,7 +16,7 @@ type creditCardDetails struct {
 	expiry     string
 }
 
-func (c creditCardDetails) checkCardLength() string {
+func (c creditCardDetails) CheckCardLength() string {
 	cardNumber := c.cardNumber
 	if len(cardNumber) < 13 || len(cardNumber) > 19 {
 		fmt.Printf("Card number is invalid: %s\n", cardNumber)
@@ -26,7 +26,7 @@ func (c creditCardDetails) checkCardLength() string {
 	return cardNumber
 }
 
-func (c creditCardDetails) lunhValidator() bool {
+func (c creditCardDetails) LunhValidator() bool {
 	cardNumber, err := strconv.Atoi(c.cardNumber)
 	if err != nil {
 		fmt.Printf("Failed to convert the card number %s in integer ", c.cardNumber)
