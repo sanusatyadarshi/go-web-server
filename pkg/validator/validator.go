@@ -11,7 +11,7 @@ import (
 )
 
 type creditCardDetails struct {
-	name       string
+	bankName   string
 	cardNumber string
 	expiry     string
 }
@@ -39,7 +39,7 @@ func (c creditCardDetails) lunhValidator() bool {
 }
 
 // func main() {
-// 	cardNumber := creditCardDetails{name: "HDFC", cardNumber: "6011111111111117", expiry: "12/30"}
+// 	cardNumber := creditCardDetails{bankName: "HDFC", cardNumber: "6011111111111117", expiry: "12/30"}
 
 // 	cardLength, validCardNumber := cardNumber.checkCardLength(), cardNumber.lunhValidator()
 // 	fmt.Println(cardLength, validCardNumber)
