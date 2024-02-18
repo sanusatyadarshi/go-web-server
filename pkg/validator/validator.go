@@ -11,13 +11,13 @@ import (
 )
 
 type CreditCardDetails struct {
-	bankName   string
-	cardNumber string
-	expiry     string
+	BankName   string
+	CardNumber string
+	Expiry     string
 }
 
 func (c CreditCardDetails) CheckCardLength() string {
-	cardNumber := c.cardNumber
+	cardNumber := c.CardNumber
 	if len(cardNumber) < 13 || len(cardNumber) > 19 {
 		fmt.Printf("Card number is invalid: %s\n", cardNumber)
 		fmt.Println(len(cardNumber))
@@ -27,9 +27,9 @@ func (c CreditCardDetails) CheckCardLength() string {
 }
 
 func (c CreditCardDetails) LunhValidator() bool {
-	cardNumber, err := strconv.Atoi(c.cardNumber)
+	cardNumber, err := strconv.Atoi(c.CardNumber)
 	if err != nil {
-		fmt.Printf("Failed to convert the card number %s in integer ", c.cardNumber)
+		fmt.Printf("Failed to convert the card number %s in integer ", c.CardNumber)
 	}
 	luhn := luhn.Valid(cardNumber)
 
@@ -39,9 +39,9 @@ func (c CreditCardDetails) LunhValidator() bool {
 }
 
 // func main() {
-// 	cardNumber := CreditCardDetails{bankName: "HDFC", cardNumber: "6011111111111117", expiry: "12/30"}
+// 	cardNumber := CreditCardDetails{BankName: "HDFC", CardNumber: "6011111111111117", Expiry: "11/24"}
 
-// 	cardLength, validCardNumber := cardNumber.checkCardLength(), cardNumber.lunhValidator()
+// 	cardLength, validCardNumber := cardNumber.CheckCardLength(), cardNumber.LunhValidator()
 // 	fmt.Println(cardLength, validCardNumber)
 
 // }
